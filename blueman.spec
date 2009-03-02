@@ -16,6 +16,7 @@ BuildRequires:	startup-notification-devel
 BuildRequires:	python-gobject
 BuildRequires:	python-notify
 BuildRequires:	bluez-devel
+BuildRequires:	python-devel
 BuildRequires:	python-pyrex
 Requires:	obex-data-server
 Requires:	python-notify
