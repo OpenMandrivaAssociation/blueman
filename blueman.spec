@@ -1,6 +1,6 @@
 Name: 		blueman
 Version: 	1.02
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
@@ -27,6 +27,7 @@ Requires:	python-dbus
 Requires:	python-gobject
 Requires:	policykit-gnome
 Requires:	notification-daemon
+Requires:	python-blueman
 Buildroot: 	%_tmppath/%{name}-%{version}
 
 
