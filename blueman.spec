@@ -116,7 +116,8 @@ rm -rf %{buildroot}
 %{_mandir}/man1/%{name}*1.*
 
 %files -n python-%{name}
-%{python_sitearch}/*
+%{py_puresitedir}/*
+%{py_platsitedir}/*
 %{_libdir}/%{name}-*
 
 
