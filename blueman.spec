@@ -10,7 +10,7 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  perl(XML::Parser)
 BuildRequires:  glib2-devel
 BuildRequires:  libGConf2-devel
-BuildRequires:  gtk2-devel
+BuildRequires:  pygtk2.0-devel
 BuildRequires:  intltool
 BuildRequires:	startup-notification-devel
 BuildRequires:	python-gobject
