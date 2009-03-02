@@ -18,6 +18,7 @@ BuildRequires:	python-notify
 BuildRequires:	bluez-devel
 BuildRequires:	python-devel
 BuildRequires:	python-pyrex
+BuildRequires:	python-dbus
 Requires:	obex-data-server
 Requires:	python-notify
 Requires:	pygtk2.0
