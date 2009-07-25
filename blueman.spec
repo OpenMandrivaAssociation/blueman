@@ -1,11 +1,11 @@
 Name: 		blueman
-Version: 	1.02
-Release: 	%mkrel 4
+Version: 	1.10
+Release: 	%mkrel 1
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
 Url: 		http://blueman-project.org/
-Source0: 	%{name}-%{version}.tar.gz
+Source0: 	http://launchpad.net/blueman/1.0/1.10/+download/%{name}-%{version}.tar.gz
 BuildRequires:  desktop-file-utils
 BuildRequires:  perl(XML::Parser)
 BuildRequires:  glib2-devel
@@ -69,6 +69,11 @@ desktop-file-install --vendor="" \
 
 %find_lang %{name}
 
+#remove devel files, package it if needed
+rm %{buildroot}%{py_platsitedir}/*.a
+rm %{buildroot}%{py_platsitedir}/*.la
+rm %{buildroot}%{py_platsitedir}/*.so
+
 %clean
 rm -rf %{buildroot}
 
@@ -110,6 +115,7 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}/icons/hicolor/scalable/status/*.svg
 %{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/icons/hicolor/scalable/apps/*.svg
+%{_datadir}/blueman/icons/hicolor/scalable/actions/*.svg
 %{_datadir}/dbus-1/services/%{name}-applet.service
 %{_datadir}/dbus-1/system-services/org.%{name}*.service
 %{_datadir}/hal/fdi/information/20thirdparty/*.fdi
@@ -117,7 +123,6 @@ rm -rf %{buildroot}
 
 %files -n python-%{name}
 %{py_puresitedir}/*
-%{py_platsitedir}/*
 %{_libdir}/%{name}-*
 
 
