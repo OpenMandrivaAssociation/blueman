@@ -1,6 +1,6 @@
 Name: 		blueman
 Version: 	1.10
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
@@ -70,9 +70,10 @@ desktop-file-install --vendor="" \
 %find_lang %{name}
 
 #remove devel files, package it if needed
-rm %{buildroot}%{py_platsitedir}/*.a
-rm %{buildroot}%{py_platsitedir}/*.la
-rm %{buildroot}%{py_platsitedir}/*.so
+# (eugeni) without those files blueman-* crash on startup
+#rm %{buildroot}%{py_platsitedir}/*.a
+#rm %{buildroot}%{py_platsitedir}/*.la
+#rm %{buildroot}%{py_platsitedir}/*.so
 
 %clean
 rm -rf %{buildroot}
