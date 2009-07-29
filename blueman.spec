@@ -1,6 +1,6 @@
 Name: 		blueman
 Version: 	1.10
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
@@ -124,6 +124,7 @@ rm -rf %{buildroot}
 
 %files -n python-%{name}
 %{py_puresitedir}/*
+%{py_platsitedir}/*
 %{_libdir}/%{name}-*
 
 
