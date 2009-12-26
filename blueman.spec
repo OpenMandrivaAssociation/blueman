@@ -1,6 +1,6 @@
 Name: 		blueman
-Version: 	1.10
-Release: 	%mkrel 3
+Version: 	1.21
+Release: 	%mkrel 1
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
@@ -25,7 +25,7 @@ Requires:	pygtk2.0
 Requires:	gnome-python-gconf
 Requires:	python-dbus
 Requires:	python-gobject
-Requires:	policykit-gnome
+Requires:	polkit-gnome
 Requires:	python-blueman
 Buildroot: 	%_tmppath/%{name}-%{version}
 
@@ -110,16 +110,18 @@ rm -rf %{buildroot}
 %{_sysconfdir}/xdg/autostart/%{name}.desktop
 %{_bindir}/%{name}-*
 %{_datadir}/applications/%{name}-manager.desktop
-%{_datadir}/PolicyKit/policy/org.%{name}.policy
+%{_datadir}/polkit-1/actions/org.%{name}.policy
 %{_datadir}/%{name}/ui/*.ui
 %{_datadir}/%{name}/icons/hicolor/*/*s/*.png
 %{_datadir}/%{name}/icons/hicolor/scalable/status/*.svg
 %{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/icons/hicolor/scalable/apps/*.svg
 %{_datadir}/blueman/icons/hicolor/scalable/actions/*.svg
+%{_datadir}/blueman/icons/hicolor/scalable/devices/*.svg
+%{_datadir}/blueman/icons/hicolor/scalable/status/*.svg
 %{_datadir}/dbus-1/services/%{name}-applet.service
 %{_datadir}/dbus-1/system-services/org.%{name}*.service
-%{_datadir}/hal/fdi/information/20thirdparty/*.fdi
+#%{_datadir}/hal/fdi/information/20thirdparty/*.fdi
 %{_mandir}/man1/%{name}*1.*
 
 %files -n python-%{name}
