@@ -102,8 +102,7 @@ desktop-file-install --vendor="" \
 %{_libdir}/nautilus-sendto/plugins/libnstblueman.so
 
 %files -n python-%{name}
-%{py_puresitedir}/*
-%{py_platsitedir}/*
+
+%{python_sitelib}/blueman
+%{python_sitearch}/*.so
 %{_libdir}/%{name}-*
-
-
