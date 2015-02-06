@@ -1,6 +1,6 @@
 Name: 		blueman
 Version: 	1.23
-Release: 	2
+Release: 	3
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
