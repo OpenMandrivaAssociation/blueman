@@ -61,11 +61,13 @@ Blueman nautilus plugin
 
 %prep
 %setup -q
+find . -name "*.py" |xargs 2to3 -w
+
 
 %build
 %configure2_5x  --disable-desktop-update \
 		--disable-icon-update \
-	        --disable-schemas-install \
+	    --disable-schemas-install \
 		--disable-static
 %make
 
