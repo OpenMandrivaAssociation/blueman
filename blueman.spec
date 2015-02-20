@@ -13,18 +13,18 @@ BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pygtk2.0-devel
 BuildRequires:  intltool
 BuildRequires:	startup-notification-devel
-BuildRequires:	python2-gobject
-BuildRequires:	python2-notify
+BuildRequires:	python-gobject
+BuildRequires:	python-notify
 BuildRequires:	bluez-devel
 BuildRequires:	python2-devel
-BuildRequires:	python2-pyrex
-BuildRequires:	python2-dbus
+BuildRequires:	python-pyrex
+BuildRequires:	python-dbus
 Requires:	obex-data-server
-Requires:	python2-notify
+Requires:	python-notify
 Requires:	pygtk2.0
 Requires:	gnome-python2-gconf
-Requires:	python2-dbus
-Requires:	python2-gobject
+Requires:	python-dbus
+Requires:	python-gobject
 Requires:	polkit-gnome
 Requires:	python-blueman
 
