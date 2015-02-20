@@ -9,7 +9,7 @@ Source0: 	http://launchpad.net/blueman/1.0/1.10/+download/%{name}-%{version}.tar
 BuildRequires:  desktop-file-utils
 BuildRequires:  perl(XML::Parser)
 BuildRequires:  glib2-devel
-BuildRequires:  libGConf2-devel
+BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pygtk2.0-devel
 BuildRequires:  intltool
 BuildRequires:	startup-notification-devel
@@ -107,47 +107,4 @@ desktop-file-install --vendor="" \
 %{python_sitearch}/*.so
 %{_libdir}/%{name}-*
 
-
-%changelog
-* Thu Jun 14 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.23-2
-+ Revision: 805708
-- rel bump
-- files into both packages fix
-- version update 1.23
-
-* Mon Nov 08 2010 Funda Wang <fwang@mandriva.org> 1.21-2mdv2011.0
-+ Revision: 595015
-- rebuild for py 2.7
-
-* Sat Dec 26 2009 Emmanuel Andry <eandry@mandriva.org> 1.21-1mdv2010.1
-+ Revision: 482499
-- New version 1.21
-- update BR
-- update files list
-
-* Wed Jul 29 2009 Eugeni Dodonov <eugeni@mandriva.com> 1.10-3mdv2010.0
-+ Revision: 403707
-- Bring back .so files to prevent blueman-* from crashing on startup.
-
-* Sat Jul 25 2009 Emmanuel Andry <eandry@mandriva.org> 1.10-1mdv2010.0
-+ Revision: 399801
-- New version 1.10
-- add source url
-- update files list
-
-* Fri Mar 27 2009 Emmanuel Andry <eandry@mandriva.org> 1.02-4mdv2009.1
-+ Revision: 361574
-- don't explicitely requires notification-daemon
-
-* Mon Mar 02 2009 Emmanuel Andry <eandry@mandriva.org> 1.02-3mdv2009.1
-+ Revision: 347587
-- requires python-blueman
-
-* Mon Mar 02 2009 Emmanuel Andry <eandry@mandriva.org> 1.02-2mdv2009.1
-+ Revision: 347346
-- fix files
-- BR python-dbus
-- fix BR
-- BR python-devel
-- import blueman
 
