@@ -8,7 +8,7 @@ Url: 		http://blueman-project.org/
 Source0: 	http://launchpad.net/blueman/1.0/1.10/+download/%{name}-%{version}.tar.gz
 BuildRequires:  desktop-file-utils
 BuildRequires:  perl(XML::Parser)
-BuildRequires:  glib2-devel
+BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pygtk2.0-devel
 BuildRequires:  intltool
