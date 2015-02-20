@@ -13,18 +13,18 @@ BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pygtk2.0-devel
 BuildRequires:  intltool
 BuildRequires:	startup-notification-devel
-BuildRequires:	python-gobject
-BuildRequires:	python-notify
+BuildRequires:	python2-gobject
+BuildRequires:	python2-notify
 BuildRequires:	bluez-devel
-BuildRequires:	python-devel
-BuildRequires:	python-pyrex
-BuildRequires:	python-dbus
+BuildRequires:	python2-devel
+BuildRequires:	python2-pyrex
+BuildRequires:	python2-dbus
 Requires:	obex-data-server
-Requires:	python-notify
+Requires:	python2-notify
 Requires:	pygtk2.0
-Requires:	gnome-python-gconf
-Requires:	python-dbus
-Requires:	python-gobject
+Requires:	gnome-python2-gconf
+Requires:	python2-dbus
+Requires:	python2-gobject
 Requires:	polkit-gnome
 Requires:	python-blueman
 
@@ -61,10 +61,11 @@ Blueman nautilus plugin
 
 %prep
 %setup -q
-find . -name "*.py" |xargs 2to3 -w
-
 
 %build
+ln -s %{_bindir}/python2 python
+export PATH=`pwd`:$PATH
+
 %configure2_5x  --disable-desktop-update \
 		--disable-icon-update \
 	    --disable-schemas-install \
@@ -105,8 +106,8 @@ desktop-file-install --vendor="" \
 
 %files -n python-%{name}
 
-%{python_sitelib}/blueman
-%{python_sitearch}/*.so
+%{python2_sitelib}/blueman
+%{python2_sitearch}/*.so
 %{_libdir}/%{name}-*
 
 
