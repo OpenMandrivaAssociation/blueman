@@ -66,11 +66,13 @@ Blueman nautilus plugin
 ln -s %{_bindir}/python2 python
 export PATH=`pwd`:$PATH
 
+
+
 %configure2_5x  --disable-desktop-update \
 		--disable-icon-update \
 	    --disable-schemas-install \
 		--disable-static
-%make
+LDFLAGS="$LDFLAGS -lpython2.7" CXXFLAGS="%{optflags} -Wstrict-aliasing=0" %make
 
 %install
 %makeinstall_std
