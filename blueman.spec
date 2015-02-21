@@ -1,6 +1,6 @@
 Name: 		blueman
 Version: 	1.23
-Release: 	3
+Release: 	4
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
@@ -10,16 +10,17 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  perl(XML::Parser)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gconf-2.0)
-BuildRequires:  pygtk2.0-devel
-BuildRequires:  intltool
-BuildRequires:	startup-notification-devel
-BuildRequires:	python2-gobject3
-BuildRequires:	python-notify
-BuildRequires:	bluez-devel
-BuildRequires:	python2-devel
-BuildRequires:	python-pyrex
-BuildRequires:	python2-dbus
+BuildRequires:  pkgconfig(gtk+-2.0) >= 2.12
+BuildRequires:  pkgconfig(pygtk-2.0) >= 2.12
+BuildRequires:	pkgconfig(libstartup-notification-1.0) >= 0.9
+BuildRequires:	pkgconfig(pygobject-2.0) >= 2.12
+BuildRequires:	pkgconfig(notify-python)
+BuildRequires:	pkgconfig(bluez) >= 4.21
+BuildRequires:	pkgconfig(python)
+BuildRequires:	pythonegg(pyrex) >= 0.9.8.0
+BuildRequires:	pkgconfig(dbus-python)
 BuildRequires:	gcc-c++, gcc, gcc-cpp
+BuildRequires:  intltool >= 0.35.0
 
 Requires:	obex-data-server
 Requires:	python-notify
@@ -65,17 +66,16 @@ Blueman nautilus plugin
 %setup -q
 
 %build
-ln -s %{_bindir}/python2 python
-export PATH=`pwd`:$PATH
 export CC=gcc
 export CXX=g++
 
 
 %configure2_5x  --disable-desktop-update \
 		--disable-icon-update \
-	    --disable-schemas-install \
-		--disable-static
-LDFLAGS="$LDFLAGS -lpython2.7" CXXFLAGS="%{optflags} -Wstrict-aliasing=0" %make
+		--disable-schemas-install \
+		--disable-static \
+		--disable-polkit
+%make
 
 %install
 %makeinstall_std
@@ -95,7 +95,6 @@ desktop-file-install --vendor="" \
 %{_datadir}/polkit-1/actions/org.%{name}.policy
 %{_datadir}/%{name}/ui/*.ui
 %{_datadir}/%{name}/icons/hicolor/*/*s/*.png
-#%{_datadir}/%{name}/icons/hicolor/scalable/status/*.svg
 %{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/icons/hicolor/scalable/apps/*.svg
 %{_datadir}/blueman/icons/hicolor/scalable/actions/*.svg
@@ -103,16 +102,14 @@ desktop-file-install --vendor="" \
 %{_datadir}/blueman/icons/hicolor/scalable/status/*.svg
 %{_datadir}/dbus-1/services/%{name}-applet.service
 %{_datadir}/dbus-1/system-services/org.%{name}*.service
-#%{_datadir}/hal/fdi/information/20thirdparty/*.fdi
 %{_mandir}/man1/%{name}*1.*
 
 %files -n nautilus-sendto-%{name}
 %{_libdir}/nautilus-sendto/plugins/libnstblueman.so
 
 %files -n python-%{name}
-
-%{python2_sitelib}/blueman
-%{python2_sitearch}/*.so
+%{python_sitelib}/blueman
+%{python_sitearch}/*.so
 %{_libdir}/%{name}-*
 
 
