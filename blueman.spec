@@ -28,7 +28,7 @@ BuildRequires:  intltool >= 0.35.0
 Requires:	obex-data-server
 Requires:	python-notify
 Requires:	pygtk2.0
-Requires:	gnome-python-gconf
+Requires:	gnome-python2-gconf
 Requires:	python2-dbus
 Requires:	python2-gobject3
 Requires:	polkit-gnome
