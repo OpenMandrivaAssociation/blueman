@@ -16,7 +16,7 @@ BuildRequires:	pkgconfig(libstartup-notification-1.0) >= 0.9
 BuildRequires:	pkgconfig(pygobject-2.0) >= 2.12
 BuildRequires:	pkgconfig(notify-python)
 BuildRequires:	pkgconfig(bluez) >= 4.21
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python2)
 BuildRequires:	pythonegg(pyrex) >= 0.9.8.0
 BuildRequires:	pkgconfig(dbus-python)
 BuildRequires:	gcc-c++, gcc, gcc-cpp
@@ -29,7 +29,7 @@ Requires:	gnome-python2-gconf
 Requires:	python2-dbus
 Requires:	python2-gobject3
 Requires:	polkit-gnome
-Requires:	python-blueman
+Requires:	python2-blueman
 
 
 %description
@@ -45,13 +45,39 @@ controlling BlueZ API and simplifying bluetooth tasks such as:
 
 Blueman also integrates with Network Manager 0.7, so any Dialup/Network
  connections will be made available (via HAL) to Network Manager.
+ 
+%files -f %{name}.lang
+%{_sysconfdir}/dbus-1/system.d/org.%{name}*.conf
+%{_sysconfdir}/xdg/autostart/%{name}.desktop
+%{_bindir}/%{name}-*
+%{_datadir}/applications/%{name}-manager.desktop
+%{_datadir}/polkit-1/actions/org.%{name}.policy
+%{_datadir}/%{name}/ui/*.ui
+%{_datadir}/%{name}/icons/hicolor/*/*s/*.png
+%{_datadir}/icons/hicolor/*/apps/*.png
+%{_datadir}/icons/hicolor/scalable/apps/*.svg
+%{_datadir}/blueman/icons/hicolor/scalable/actions/*.svg
+%{_datadir}/blueman/icons/hicolor/scalable/devices/*.svg
+%{_datadir}/blueman/icons/hicolor/scalable/status/*.svg
+%{_datadir}/dbus-1/services/%{name}-applet.service
+%{_datadir}/dbus-1/system-services/org.%{name}*.service
+%{_mandir}/man1/%{name}*1.* 
+ 
+#---------------------------------------------------------
 
-%package -n	python-%{name}
+%package -n	python2-%{name}
 Summary:	Blueman python package
 Group:		Communications
 
-%description -n	python-%{name}
+%description -n	python2-%{name}
 The python-blueman package is required for blueman.
+
+%files -n python2-%{name}
+%{py2_puresitedir}/blueman
+%{py2_platsitedir}/*.so
+%{_libdir}/%{name}-*
+
+#-----------------------------------------------------------
 
 %package -n	nautilus-sendto-%{name} 
 Summary:	Blueman nautilus plugin
@@ -62,8 +88,15 @@ Provides:	nautilus-sendto-%{name}-plugin
 Blueman nautilus plugin
 
 
+
+%files -n nautilus-sendto-%{name}
+%{_libdir}/nautilus-sendto/plugins/libnstblueman.so
+
+#-----------------------------------------------------------
+
 %prep
 %setup -q
+find . -name "*.py" |xargs 2to3 -w
 
 %build
 export CC=gcc
@@ -87,29 +120,8 @@ desktop-file-install --vendor="" \
 
 %find_lang %{name}
 
-%files -f %{name}.lang
-%{_sysconfdir}/dbus-1/system.d/org.%{name}*.conf
-%{_sysconfdir}/xdg/autostart/%{name}.desktop
-%{_bindir}/%{name}-*
-%{_datadir}/applications/%{name}-manager.desktop
-%{_datadir}/polkit-1/actions/org.%{name}.policy
-%{_datadir}/%{name}/ui/*.ui
-%{_datadir}/%{name}/icons/hicolor/*/*s/*.png
-%{_datadir}/icons/hicolor/*/apps/*.png
-%{_datadir}/icons/hicolor/scalable/apps/*.svg
-%{_datadir}/blueman/icons/hicolor/scalable/actions/*.svg
-%{_datadir}/blueman/icons/hicolor/scalable/devices/*.svg
-%{_datadir}/blueman/icons/hicolor/scalable/status/*.svg
-%{_datadir}/dbus-1/services/%{name}-applet.service
-%{_datadir}/dbus-1/system-services/org.%{name}*.service
-%{_mandir}/man1/%{name}*1.*
 
-%files -n nautilus-sendto-%{name}
-%{_libdir}/nautilus-sendto/plugins/libnstblueman.so
 
-%files -n python-%{name}
-%{python_sitelib}/blueman
-%{python_sitearch}/*.so
-%{_libdir}/%{name}-*
+
 
 
