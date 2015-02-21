@@ -1,4 +1,5 @@
 %define Werror_cflags %nil
+%define _libexecdir /usr/libexec
 
 Name: 		blueman
 Version: 	1.23
@@ -52,6 +53,7 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 %{_sysconfdir}/dbus-1/system.d/org.%{name}*.conf
 %{_sysconfdir}/xdg/autostart/%{name}.desktop
 %{_bindir}/%{name}-*
+%{_libexecdir}/blueman-mechanism
 %{_datadir}/applications/%{name}-manager.desktop
 %{_datadir}/polkit-1/actions/org.%{name}.policy
 %{_datadir}/%{name}/ui/*.ui
