@@ -24,7 +24,7 @@ Requires:	python-notify
 Requires:	pygtk2.0
 Requires:	gnome-python2-gconf
 Requires:	python2-dbus
-Requires:	python-gobject
+Requires:	python2-gobject3
 Requires:	polkit-gnome
 Requires:	python-blueman
 
