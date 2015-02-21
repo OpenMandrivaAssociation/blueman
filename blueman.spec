@@ -19,6 +19,8 @@ BuildRequires:	bluez-devel
 BuildRequires:	python2-devel
 BuildRequires:	python-pyrex
 BuildRequires:	python2-dbus
+BuildRequires:	gcc-c++, gcc, gcc-cpp
+
 Requires:	obex-data-server
 Requires:	python-notify
 Requires:	pygtk2.0
@@ -65,7 +67,8 @@ Blueman nautilus plugin
 %build
 ln -s %{_bindir}/python2 python
 export PATH=`pwd`:$PATH
-
+export CC=gcc
+export CXX=g++
 
 
 %configure2_5x  --disable-desktop-update \
