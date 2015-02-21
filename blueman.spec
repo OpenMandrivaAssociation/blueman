@@ -1,3 +1,5 @@
+%define Werror_cflags %nil
+
 Name: 		blueman
 Version: 	1.23
 Release: 	4
@@ -30,7 +32,7 @@ Requires:	python2-dbus
 Requires:	python2-gobject3
 Requires:	polkit-gnome
 Requires:	python2-blueman
-
+Requires:	python2
 
 %description
 Blueman is designed to provide simple, yet effective means for 
@@ -96,12 +98,13 @@ Blueman nautilus plugin
 
 %prep
 %setup -q
-find . -name "*.py" |xargs 2to3 -w
 
 %build
 export CC=gcc
 export CXX=g++
-
+ln -s %{_bindir}/python2 python
+export PATH=`pwd`:$PATH
+export LDFLAGS="$LDFLAGS -lpython2.7" 
 
 %configure2_5x  --disable-desktop-update \
 		--disable-icon-update \
@@ -117,6 +120,9 @@ desktop-file-install --vendor="" \
   --add-category="GTK" \
   --add-category="HardwareSettings" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/%{name}-manager.desktop
+  
+  
+sed -i -e 's,env python,python2,' %{buildroot}%{_bindir}/*
 
 %find_lang %{name}
 
