@@ -14,15 +14,16 @@ BuildRequires: desktop-file-utils
 BuildRequires: perl(XML::Parser)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gconf-2.0)
-BuildRequires:	pkgconfig(libstartup-notification-1.0) >= 0.9
-BuildRequires:	pkgconfig(bluez)
-BuildRequires:	pkgconfig(python)
-BuildRequires:	pkgconfig(dbus-python)
-BuildRequires:	pkgconfig(pygobject-3.0)
-BuildRequires:	python-gobject3
-BuildRequires:	python3dist(cython)
-BuildRequires:	gettext
-BuildRequires:  meson
+BuildRequires: pkgconfig(libstartup-notification-1.0) >= 0.9
+BuildRequires: pkgconfig(bluez)
+BuildRequires: pkgconfig(polkit-agent-1)
+BuildRequires: pkgconfig(python)
+BuildRequires: pkgconfig(dbus-python)
+BuildRequires: pkgconfig(pygobject-3.0)
+BuildRequires: python-gobject3
+BuildRequires: python3dist(cython)
+BuildRequires: gettext
+BuildRequires: meson
 
 Requires:	obex-data-server
 Requires:	python-notify
