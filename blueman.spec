@@ -10,12 +10,11 @@ Group: 		Communications
 Url: 		https://github.com/blueman-project/blueman/
 Source0:	https://github.com/blueman-project/blueman/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  desktop-file-utils
-BuildRequires:  perl(XML::Parser)
-BuildRequires:  pkgconfig(glib-2.0)
-BuildRequires:  pkgconfig(gconf-2.0)
+BuildRequires: desktop-file-utils
+BuildRequires: perl(XML::Parser)
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(libstartup-notification-1.0) >= 0.9
-BuildRequires:	pkgconfig(notify-python)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(dbus-python)
