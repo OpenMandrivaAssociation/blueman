@@ -23,7 +23,7 @@ BuildRequires: pkgconfig(pygobject-3.0)
 BuildRequires: python-gobject3
 BuildRequires: python3dist(cython)
 BuildRequires: gettext
-BuildRequires: meson
+BuildRequires:	intltool
 
 Requires:	obex-data-server
 Requires:	python-notify
@@ -102,12 +102,17 @@ Blueman nautilus plugin
 %setup -q
 
 %build
-%meson \
-       -Dpolicykit=true
-
-%meson_build
+%configure \
+    --enable-polkit \
+    --disable-static \
+    --enable-thunar-sendto \
+    --enable-settings-integration \
+    --disable-schemas-compile \
+    --with-dhcp-config=%{_sysconfdir}/dhcpd.conf
+%make_build
 
 %install
-%meson_install 
+%make_install
+
 
 %find_lang %{name}
