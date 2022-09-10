@@ -103,6 +103,9 @@ Blueman nautilus plugin
 %setup -q
 
 %build
+export PYTHON=%{__python3}
+export CYTHONEXEC=cython-3
+export PATH="%{_sbindir}${PATH:+:$PATH}"
 %configure \
     --enable-polkit \
     --disable-static \
