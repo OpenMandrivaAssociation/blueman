@@ -23,7 +23,8 @@ BuildRequires: pkgconfig(pygobject-3.0)
 BuildRequires: python-gobject3
 BuildRequires: python3dist(cython)
 BuildRequires: gettext
-BuildRequires:	intltool
+BuildRequires: intltool
+BuildRequires: iproute2
 
 Requires:	obex-data-server
 Requires:	python-notify
