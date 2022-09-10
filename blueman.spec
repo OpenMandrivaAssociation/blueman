@@ -2,28 +2,28 @@
 %define _libexecdir /usr/libexec
 
 Name: 		blueman
-Version: 	1.23
-Release: 	4
+Version: 	2.3.2
+Release: 	1
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
-Url: 		http://blueman-project.org/
-Source0: 	http://launchpad.net/blueman/1.0/1.10/+download/%{name}-%{version}.tar.gz
+Url: 		https://github.com/blueman-project/blueman/
+Source0:	https://github.com/blueman-project/blueman/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
+
 BuildRequires:  desktop-file-utils
 BuildRequires:  perl(XML::Parser)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gconf-2.0)
-BuildRequires:  pkgconfig(gtk+-2.0) >= 2.12
-BuildRequires:  pkgconfig(pygtk-2.0) >= 2.12
 BuildRequires:	pkgconfig(libstartup-notification-1.0) >= 0.9
-BuildRequires:	pkgconfig(pygobject-2.0) >= 2.12
 BuildRequires:	pkgconfig(notify-python)
-BuildRequires:	pkgconfig(bluez) >= 4.21
-BuildRequires:	pkgconfig(python2)
-BuildRequires:	pythonegg(pyrex) >= 0.9.8.0
+BuildRequires:	pkgconfig(bluez)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(dbus-python)
-BuildRequires:	gcc-c++, gcc, gcc-cpp
-BuildRequires:  intltool >= 0.35.0
+BuildRequires:	pkgconfig(pygobject-3.0)
+BuildRequires:	python-gobject3
+BuildRequires:	python3dist(cython)
+BuildRequires:	gettext
+BuildRequires:  meson
 
 Requires:	obex-data-server
 Requires:	python-notify
@@ -102,34 +102,11 @@ Blueman nautilus plugin
 %setup -q
 
 %build
-export CC=gcc
-export CXX=g++
-ln -s %{_bindir}/python2 python
-export PATH=`pwd`:$PATH
-export LDFLAGS="$LDFLAGS -lpython2.7" 
+%meson
 
-%configure2_5x  --disable-desktop-update \
-		--disable-icon-update \
-		--disable-schemas-install \
-		--disable-static \
-		--disable-polkit
-%make
+%meson_build
 
 %install
-%makeinstall_std
-
-desktop-file-install --vendor="" \
-  --add-category="GTK" \
-  --add-category="HardwareSettings" \
-  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/%{name}-manager.desktop
-  
-  
-sed -i -e 's,env python,python2,' %{buildroot}%{_bindir}/*
+%meson_install 
 
 %find_lang %{name}
-
-
-
-
-
-
