@@ -102,7 +102,8 @@ Blueman nautilus plugin
 %setup -q
 
 %build
-%meson
+%meson \
+       -Dpolicykit=true
 
 %meson_build
 
