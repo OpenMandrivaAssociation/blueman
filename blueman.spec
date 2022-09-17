@@ -103,6 +103,8 @@ Blueman nautilus plugin
 %setup -q
 
 %build
+export CC=gcc
+export CXX=g++
 export PYTHON=%{__python3}
 export CYTHONEXEC=cython-3
 export PATH="%{_sbindir}${PATH:+:$PATH}"
