@@ -27,6 +27,7 @@ BuildRequires: gettext
 BuildRequires: intltool
 BuildRequires: libtool
 BuildRequires: iproute2
+BuildRequires: meson
 
 Requires:	obex-data-server
 Requires:	python-notify
@@ -107,23 +108,12 @@ Blueman nautilus plugin
 %build
 export CC=gcc
 export CXX=g++
-export PYTHON=%{__python3}
-export CYTHONEXEC=cython-3
-export PATH="%{_sbindir}${PATH:+:$PATH}"
-aclocal
-autoconf
-automake --add-missing
-%configure \
-    --enable-polkit \
-    --disable-static \
-    --enable-thunar-sendto \
-    --enable-settings-integration \
-    --disable-schemas-compile \
-    --with-dhcp-config=%{_sysconfdir}/dhcpd.conf
-%make_build
+%meson \
+       -Dpolicykit=true
 
+%meson_build
 %install
-%make_install
+%meson_install
 
 
 %find_lang %{name}
