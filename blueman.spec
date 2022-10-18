@@ -1,5 +1,6 @@
 %define Werror_cflags %nil
 %define _libexecdir /usr/libexec
+%define _disable_ld_no_undefined 1
 
 Name: 		blueman
 Version: 	2.3.4
