@@ -22,8 +22,10 @@ BuildRequires: pkgconfig(dbus-python)
 BuildRequires: pkgconfig(pygobject-3.0)
 BuildRequires: python-gobject3
 BuildRequires: python3dist(cython)
+BuildRequires: automake
 BuildRequires: gettext
 BuildRequires: intltool
+BuildRequires: libtool
 BuildRequires: iproute2
 
 Requires:	obex-data-server
