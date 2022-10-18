@@ -12,6 +12,7 @@ Source0:	https://github.com/blueman-project/blueman/archive/refs/tags/%{version}
 
 BuildRequires: desktop-file-utils
 BuildRequires: perl(XML::Parser)
+BuildRequires: pkgconfig(gtk+-3.0)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gconf-2.0)
 BuildRequires: pkgconfig(libstartup-notification-1.0) >= 0.9
@@ -20,6 +21,7 @@ BuildRequires: pkgconfig(polkit-agent-1)
 BuildRequires: pkgconfig(python)
 BuildRequires: pkgconfig(dbus-python)
 BuildRequires: pkgconfig(pygobject-3.0)
+BuildRequires: pkgconfig(libsystemd)
 BuildRequires: python-gobject3
 BuildRequires: python3dist(cython)
 BuildRequires: automake
