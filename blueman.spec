@@ -2,7 +2,7 @@
 %define _libexecdir /usr/libexec
 
 Name: 		blueman
-Version: 	2.3.2
+Version: 	2.3.4
 Release: 	1
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
