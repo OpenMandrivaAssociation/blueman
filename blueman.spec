@@ -59,33 +59,41 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 %files -f %{name}.lang
 #{_sysconfdir}/dbus-1/system.d/org.%{name}*.conf
 %{_sysconfdir}/xdg/autostart/%{name}.desktop
+%{_prefix}/lib/systemd/system/blueman-mechanism.service
+%{_prefix}/lib/systemd/user/blueman-applet.service
 %{_bindir}/%{name}-*
 %{_libexecdir}/blueman-mechanism
+%{_libexecdir}/libexec/blueman-rfcomm-watcher
 %{_datadir}/applications/%{name}-manager.desktop
+%{_datadir}/applications/blueman-adapters.desktop
 %{_datadir}/polkit-1/actions/org.%{name}.policy
 %{_datadir}/%{name}/ui/*.ui
-#{_datadir}/%{name}/icons/hicolor/*/*s/*.png
+%{_datadir}/icons/hicolor/*x*/status/blueman*
 %{_datadir}/icons/hicolor/*/apps/*.png
+%{_datadir}/icons/hicolor/scalable/actions/blueman*
+%{_datadir}/icons/hicolor/scalable/devices/blueman*
+%{_datadir}/icons/hicolor/scalable/emblems/
+%{_datadir}/icons/hicolor/scalable/status/blueman*
 %{_datadir}/icons/hicolor/scalable/apps/*.svg
-#{_datadir}/blueman/icons/hicolor/scalable/actions/*.svg
-#{_datadir}/blueman/icons/hicolor/scalable/devices/*.svg
-#{_datadir}/blueman/icons/hicolor/scalable/status/*.svg
-#{_datadir}/dbus-1/services/%{name}-applet.service
+%{_datadir}/blueman/pixmaps/
+%{_datadir}/dbus-1/services/org.blueman.Applet.service
+%{_datadir}/dbus-1/system.d/org.blueman.Mechanism.conf
+%{_datadir}/glib-2.0/schemas/org.blueman.gschema.xml
 %{_datadir}/dbus-1/system-services/org.%{name}*.service
 %{_mandir}/man1/%{name}*1.* 
  
 #---------------------------------------------------------
 
-%package -n	python2-%{name}
+%package -n	python-%{name}
 Summary:	Blueman python package
 Group:		Communications
 
 %description -n	python2-%{name}
 The python-blueman package is required for blueman.
 
-%files -n python2-%{name}
-#{py2_puresitedir}/blueman
-#{py2_platsitedir}/*.so
+%files -n python-%{name}
+%{python_sitelib}/_blueman.so
+%{python_sitelib}/blueman/
 
 
 #-----------------------------------------------------------
@@ -102,8 +110,12 @@ Blueman nautilus plugin
 
 %files -n nautilus-sendto-%{name}
 #{_libdir}/nautilus-sendto/plugins/libnstblueman.so
-
+%{_datadir}/nautilus-python/extensions/nautilus_blueman_sendto.py
+%{_datadir}/nemo-python/extensions/nemo_blueman_sendto.py
+%{_datadir}/Thunar/sendto/thunar-sendto-blueman.desktop
+%{_datadir}/caja-python/extensions/caja_blueman_sendto.py
 #-----------------------------------------------------------
+
 
 %prep
 %setup -q
