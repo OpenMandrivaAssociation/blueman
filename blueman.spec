@@ -57,20 +57,20 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
  connections will be made available (via HAL) to Network Manager.
  
 %files -f %{name}.lang
-%{_sysconfdir}/dbus-1/system.d/org.%{name}*.conf
+#{_sysconfdir}/dbus-1/system.d/org.%{name}*.conf
 %{_sysconfdir}/xdg/autostart/%{name}.desktop
 %{_bindir}/%{name}-*
 %{_libexecdir}/blueman-mechanism
 %{_datadir}/applications/%{name}-manager.desktop
 %{_datadir}/polkit-1/actions/org.%{name}.policy
 %{_datadir}/%{name}/ui/*.ui
-%{_datadir}/%{name}/icons/hicolor/*/*s/*.png
+#{_datadir}/%{name}/icons/hicolor/*/*s/*.png
 %{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/icons/hicolor/scalable/apps/*.svg
-%{_datadir}/blueman/icons/hicolor/scalable/actions/*.svg
-%{_datadir}/blueman/icons/hicolor/scalable/devices/*.svg
-%{_datadir}/blueman/icons/hicolor/scalable/status/*.svg
-%{_datadir}/dbus-1/services/%{name}-applet.service
+#{_datadir}/blueman/icons/hicolor/scalable/actions/*.svg
+#{_datadir}/blueman/icons/hicolor/scalable/devices/*.svg
+#{_datadir}/blueman/icons/hicolor/scalable/status/*.svg
+#{_datadir}/dbus-1/services/%{name}-applet.service
 %{_datadir}/dbus-1/system-services/org.%{name}*.service
 %{_mandir}/man1/%{name}*1.* 
  
