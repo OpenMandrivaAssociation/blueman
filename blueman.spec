@@ -101,7 +101,7 @@ Blueman nautilus plugin
 
 
 %files -n nautilus-sendto-%{name}
-%{_libdir}/nautilus-sendto/plugins/libnstblueman.so
+#{_libdir}/nautilus-sendto/plugins/libnstblueman.so
 
 #-----------------------------------------------------------
 
