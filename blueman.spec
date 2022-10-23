@@ -84,8 +84,8 @@ Group:		Communications
 The python-blueman package is required for blueman.
 
 %files -n python2-%{name}
-%{py2_puresitedir}/blueman
-%{py2_platsitedir}/*.so
+#{py2_puresitedir}/blueman
+#{py2_platsitedir}/*.so
 
 
 #-----------------------------------------------------------
