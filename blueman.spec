@@ -70,6 +70,7 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 %{_datadir}/%{name}/ui/*.ui
 %{_datadir}/icons/hicolor/*x*/status/blueman*
 %{_datadir}/icons/hicolor/*/apps/*.png
+%{_datadir}/icons/hicolor/16x16/devices/blueman-device.png
 %{_datadir}/icons/hicolor/scalable/actions/blueman*
 %{_datadir}/icons/hicolor/scalable/devices/blueman*
 %{_datadir}/icons/hicolor/scalable/emblems/
