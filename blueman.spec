@@ -63,7 +63,7 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 %{_prefix}/lib/systemd/user/blueman-applet.service
 %{_bindir}/%{name}-*
 %{_libexecdir}/blueman-mechanism
-%{_libexecdir}/libexec/blueman-rfcomm-watcher
+%{_libexecdir}/blueman-rfcomm-watcher
 %{_datadir}/applications/%{name}-manager.desktop
 %{_datadir}/applications/blueman-adapters.desktop
 %{_datadir}/polkit-1/actions/org.%{name}.policy
