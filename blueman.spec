@@ -39,7 +39,7 @@ Requires:	gnome-python2-gconf
 Requires:	python2-dbus
 Requires:	python2-gobject3
 Requires:	polkit-gnome
-Requires:	python2-blueman
+Requires:	python-blueman
 Requires:	python2
 
 %description
@@ -88,7 +88,7 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 Summary:	Blueman python package
 Group:		Communications
 
-%description -n	python2-%{name}
+%description -n	python-%{name}
 The python-blueman package is required for blueman.
 
 %files -n python-%{name}
