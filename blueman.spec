@@ -32,15 +32,16 @@ BuildRequires: libtool
 BuildRequires: iproute2
 BuildRequires: meson
 
-Requires:	obex-data-server
-Requires:	python-notify
-Requires:	pygtk2.0
-Requires:	gnome-python2-gconf
-Requires:	python2-dbus
-Requires:	python2-gobject3
 Requires:	polkit-gnome
 Requires:	python-blueman
-Requires:	python2
+Requires:	python
+
+Requires:	bluez
+Requires:	python-gobject3
+#Requires:	pulseaudio-module-bluetooth
+Requires:	adwaita-icon-theme
+Requires:	iproute2
+
 
 %description
 Blueman is designed to provide simple, yet effective means for 
@@ -81,6 +82,10 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 %{_datadir}/dbus-1/system.d/org.blueman.Mechanism.conf
 %{_datadir}/glib-2.0/schemas/org.blueman.gschema.xml
 %{_datadir}/dbus-1/system-services/org.%{name}*.service
+%{_datadir}/nautilus-python/extensions/nautilus_blueman_sendto.py
+%{_datadir}/nemo-python/extensions/nemo_blueman_sendto.py
+%{_datadir}/Thunar/sendto/thunar-sendto-blueman.desktop
+%{_datadir}/caja-python/extensions/caja_blueman_sendto.py
 %{_mandir}/man1/%{name}*1.* 
  
 #---------------------------------------------------------
@@ -97,24 +102,6 @@ The python-blueman package is required for blueman.
 %{python_sitelib}/blueman/
 
 
-#-----------------------------------------------------------
-
-%package -n	nautilus-sendto-%{name} 
-Summary:	Blueman nautilus plugin
-Group:		Communications
-Provides:	nautilus-sendto-%{name}-plugin
-
-%description -n	nautilus-sendto-%{name}
-Blueman nautilus plugin
-
-
-
-%files -n nautilus-sendto-%{name}
-#{_libdir}/nautilus-sendto/plugins/libnstblueman.so
-%{_datadir}/nautilus-python/extensions/nautilus_blueman_sendto.py
-%{_datadir}/nemo-python/extensions/nemo_blueman_sendto.py
-%{_datadir}/Thunar/sendto/thunar-sendto-blueman.desktop
-%{_datadir}/caja-python/extensions/caja_blueman_sendto.py
 #-----------------------------------------------------------
 
 
