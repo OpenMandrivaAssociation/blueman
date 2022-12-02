@@ -62,6 +62,7 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 %{_sysconfdir}/xdg/autostart/%{name}.desktop
 %{_prefix}/lib/systemd/system/blueman-mechanism.service
 %{_prefix}/lib/systemd/user/blueman-applet.service
+%{_prefix}/lib/systemd/user/blueman-manager.service
 %{_bindir}/%{name}-*
 %{_libexecdir}/blueman-mechanism
 %{_libexecdir}/blueman-rfcomm-watcher
@@ -80,6 +81,7 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 %{_datadir}/blueman/pixmaps/
 %{_datadir}/dbus-1/services/org.blueman.Applet.service
 %{_datadir}/dbus-1/system.d/org.blueman.Mechanism.conf
+%{_datadir}/dbus-1/services/org.blueman.Manager.service
 %{_datadir}/glib-2.0/schemas/org.blueman.gschema.xml
 %{_datadir}/dbus-1/system-services/org.%{name}*.service
 %{_datadir}/nautilus-python/extensions/nautilus_blueman_sendto.py
