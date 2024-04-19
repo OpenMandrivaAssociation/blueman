@@ -60,8 +60,8 @@ Blueman also integrates with Network Manager 0.7, so any Dialup/Network
 %files -f %{name}.lang
 #{_sysconfdir}/dbus-1/system.d/org.%{name}*.conf
 %{_sysconfdir}/xdg/autostart/%{name}.desktop
-%{_unitdir}/*.service
-%{_userunitdir}/*.service
+#{_unitdir}/*.service
+#{_userunitdir}/*.service
 %{_bindir}/%{name}-*
 %{_libexecdir}/%{name}-*
 %{_datadir}/applications/*.desktop
