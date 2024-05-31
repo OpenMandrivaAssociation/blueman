@@ -3,7 +3,7 @@
 %define _disable_ld_no_undefined 1
 
 Name: 		blueman
-Version: 	2.4.1
+Version: 	2.4.2
 Release: 	1
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
