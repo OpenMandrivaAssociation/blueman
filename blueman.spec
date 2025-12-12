@@ -4,7 +4,7 @@
 
 Name: 		blueman
 Version: 	2.4.6
-Release: 	1
+Release: 	2
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
