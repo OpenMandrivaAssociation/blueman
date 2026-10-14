@@ -4,7 +4,7 @@
 
 Name: 		blueman
 Version: 	2.4.6
-Release: 	2
+Release: 	3
 Summary: 	Full featured bluetooth manager for GNOME/GTK
 License: 	GPLv2+
 Group: 		Communications
@@ -19,12 +19,12 @@ BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(libstartup-notification-1.0) >= 0.9
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(polkit-agent-1)
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(dbus-python)
 BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	python-gobject3
-BuildRequires:	python3dist(cython)
+BuildRequires:	python%{pyver}dist(cython)
 BuildRequires:	automake
 BuildRequires:	gettext
 BuildRequires:	intltool
